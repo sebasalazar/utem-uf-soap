@@ -1,4 +1,4 @@
-package cl.sebastian.indicadores.vo;
+package cl.sebastian.indicator.vo;
 
 import jakarta.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;

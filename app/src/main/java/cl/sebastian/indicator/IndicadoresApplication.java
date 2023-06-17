@@ -1,6 +1,6 @@
-package cl.sebastian.indicadores;
+package cl.sebastian.indicator;
 
-import cl.sebastian.indicadores.ws.impl.UfImpl;
+import cl.sebastian.indicator.ws.impl.UfImpl;
 import jakarta.xml.ws.Endpoint;
 import org.apache.cxf.bus.spring.SpringBus;
 import org.apache.cxf.jaxws.EndpointImpl;

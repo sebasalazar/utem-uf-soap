@@ -1,4 +1,4 @@
-package cl.sebastian.indicadores.vo.cmf;
+package cl.sebastian.indicator.vo.cmf;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

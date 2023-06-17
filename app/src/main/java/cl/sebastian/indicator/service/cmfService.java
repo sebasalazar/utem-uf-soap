@@ -1,6 +1,6 @@
-package cl.sebastian.indicadores.service;
+package cl.sebastian.indicator.service;
 
-import cl.sebastian.indicadores.vo.cmf.CMFUfs;
+import cl.sebastian.indicator.vo.cmf.CMFUfs;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -24,28 +24,28 @@ import org.springframework.stereotype.Service;
  *
  * @author seba
  */
-@Service("servicioCmf")
-public class ServicioCmf implements Serializable {
+@Service
+public class cmfService implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Value("${cmf.api.key}")
     private String apiKey;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ServicioCmf.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(cmfService.class);
 
     /**
      *
-     * @param fechaConsulta Fecha de consulta
+     * @param queryDate Fecha de consulta
      * @return Un bigDecimal con el valor de la UF en el día o nulo en caso de
      * cualquier error.
      */
-    public BigDecimal obtenerValorUf(LocalDate fechaConsulta) {
-        BigDecimal valor = null;
+    public BigDecimal getUfValue(LocalDate queryDate) {
+        BigDecimal val = null;
         try {
-            if (fechaConsulta != null) {
+            if (queryDate != null) {
                 final String url = String.format("http://api.cmfchile.cl/api-sbifv3/recursos_api/uf/%d/%d/dias/%d?apikey=%s&formato=json",
-                        fechaConsulta.getYear(), fechaConsulta.getMonthValue(), fechaConsulta.getDayOfMonth(), apiKey);
+                        queryDate.getYear(), queryDate.getMonthValue(), queryDate.getDayOfMonth(), apiKey);
 
                 LOGGER.info("URL de consulta: '{}'", url);
                 if (UrlValidator.getInstance().isValid(url)) {
@@ -86,7 +86,7 @@ public class ServicioCmf implements Serializable {
                             double montoDecimal = montoAumentado / 100.0;
                             LOGGER.info("Valor de la UF como decimal: {}", montoDecimal);
 
-                            valor = BigDecimal.valueOf(montoDecimal).setScale(2, RoundingMode.HALF_UP);
+                            val = BigDecimal.valueOf(montoDecimal).setScale(2, RoundingMode.HALF_UP);
                         } else {
                             LOGGER.error("Respuesta exitosa pero sin datos");
                         }
@@ -99,10 +99,10 @@ public class ServicioCmf implements Serializable {
                 }
             }
         } catch (Exception e) {
-            valor = null;
+            val = null;
             LOGGER.error("Error al obtener la UF desde la CMF: {}", e.getMessage());
             LOGGER.error("Error al obtener la UF desde la CMF: {}", e.getMessage(), e);
         }
-        return valor;
+        return val;
     }
 }

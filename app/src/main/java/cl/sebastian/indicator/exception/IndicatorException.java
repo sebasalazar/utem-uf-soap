@@ -1,4 +1,4 @@
-package cl.sebastian.indicadores.exception;
+package cl.sebastian.indicator.exception;
 
 /**
  *
