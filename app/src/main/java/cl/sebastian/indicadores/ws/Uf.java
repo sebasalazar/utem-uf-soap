@@ -1,8 +1,8 @@
 package cl.sebastian.indicadores.ws;
 
 import cl.sebastian.indicadores.vo.UfVO;
-import javax.jws.WebParam;
-import javax.jws.WebService;
+import jakarta.jws.WebParam;
+import jakarta.jws.WebService;
 
 /**
  *

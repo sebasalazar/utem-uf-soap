@@ -1,12 +1,12 @@
 package cl.sebastian.indicadores.vo;
 
+import jakarta.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.Objects;
-import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
