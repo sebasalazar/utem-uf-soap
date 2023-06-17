@@ -1,7 +1,7 @@
 package cl.sebastian.indicadores;
 
 import cl.sebastian.indicadores.ws.impl.UfImpl;
-import javax.xml.ws.Endpoint;
+import jakarta.xml.ws.Endpoint;
 import org.apache.cxf.bus.spring.SpringBus;
 import org.apache.cxf.jaxws.EndpointImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ public class IndicadoresApplication {
 
     @Autowired
     private SpringBus bus;
-    
+
     @Autowired
     private UfImpl ufImpl;
 
