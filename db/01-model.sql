@@ -9,6 +9,7 @@ CREATE TABLE users (
     PRIMARY KEY (pk)
 );
 CREATE UNIQUE INDEX users_username_uidx ON users(LOWER(TRIM(both FROM username)));
+INSERT INTO users (username,password,active) VALUES ('seba','fd43e2d7-255e-4d9b-a58c-2b15c3b7931a','1');
 
 
 DROP TABLE IF EXISTS ufs CASCADE;

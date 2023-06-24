@@ -6,6 +6,7 @@ import java.io.Serializable;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -19,6 +20,7 @@ public class UserManager implements Serializable {
     @Autowired
     private transient UserRepository userRepository;
 
+    @Transactional
     public User getUser(final String username, final String password) {
         User user = null;
         if (!StringUtils.isAnyBlank(username, password)) {

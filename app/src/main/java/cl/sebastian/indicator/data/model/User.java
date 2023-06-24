@@ -20,6 +20,9 @@ public class User extends Seba {
     @Column(name = "username", nullable = false, unique = true)
     private String username = null;
 
+    @Column(name = "password", nullable = false)
+    private String password = null;
+
     @Column(name = "active", nullable = false)
     private boolean active = false;
 
@@ -37,6 +40,14 @@ public class User extends Seba {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public boolean isActive() {

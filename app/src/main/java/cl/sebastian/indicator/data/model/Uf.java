@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -23,7 +23,7 @@ public class Uf extends Seba {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "uf_date", nullable = false, unique = true)
-    private Date date = null;
+    private LocalDate date = null;
 
     @Column(name = "uf_value", nullable = false)
     private BigDecimal value = null;
@@ -36,11 +36,11 @@ public class Uf extends Seba {
         this.id = id;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
