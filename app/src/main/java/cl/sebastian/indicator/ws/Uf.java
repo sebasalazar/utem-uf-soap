@@ -18,6 +18,6 @@ public interface Uf {
      * @param dateStr Fecha de consulta
      * @return Un objeto con el valor de la UF
      */
-    public UfVO consultar(@WebParam(name = "credential") CredentialVO credential,
+    public UfVO consultar(@WebParam(name = "credencial") CredentialVO credential,
             @WebParam(name = "fecha") String dateStr);
 }

@@ -1,5 +1,6 @@
 package cl.sebastian.indicator.utils;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.Serializable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -86,6 +87,9 @@ public class OkHttpUtils implements Serializable {
 
     }
 
+    public static final ObjectMapper MAPPER = new ObjectMapper();
+    
+    
     /**
      *
      * @param connectTimeout tiempo de expiración para conectarse en segundos.
